@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -81,5 +81,377 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
+  },
+  --------------------------------------------------------------------
+  {
+    "folke/todo-comments.nvim",
+    --   requires = "nvim-lua/plenary.nvim",
+    --   -- config = function() require("todo-comments").setup {} end,
+    opts = {},
+    event = { "User AstroFile" },
+    cmd = { "TodoQuickFix" },
+    keys = {
+      {
+        "<Leader>T",
+        "<cmd>TodoTelescope keywords=TODO,FIX,NOTE,HACK,REVIEW,WARNING,PERF,BUG<cr>",
+        desc = "TODO-COMMENTS Telescope",
+      },
+    },
+  },
+  {
+    "ggandor/lightspeed.nvim",
+    opts = {},
+    event = { "User AstroFile" },
+  },
+  {
+    "luukvbaal/nnn.nvim",
+    -- config = function() require("nnn").setup() end,
+    config = function(_, opts) require("nnn").setup(opts) end,
+    opts = {
+      picker = {
+        -- cmd = "tmux new-session yazi ",
+        cmd = "tmux new-session nnn -Pp",
+        -- cmd = "zellij r -f -c -- nnn -Pp",
+        style = { border = "rounded" },
+        session = "shared",
+      },
+      replace_netrw = "picker",
+      -- windownav = "<C-l>",
+    },
+    event = { "User AstroFile" },
+    keys = {
+      -- { "<F11>", "<cmd>NnnExplorer %:p:h<cr>", desc = "Open nnn Explorer" },
+      { "<F12>", "<cmd>NnnPicker<cr>", desc = "Open nnn Picker" },
+    },
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    -- config = function() vim.keymap.set("n", "<C-h>", "<cmd>:TmuxNavigateLeft<cr>") end,
+  },
+  {
+    "navarasu/onedark.nvim",
+    opts = {
+      -- styles = dark, darker, cool, deep, warm, warmer, light
+      -- toggle theme style ---
+      toggle_style_key = "<leader>ts", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+      -- toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
+      toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer" }, -- List of styles to toggle between
+    },
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = false,
+    opts = {},
+    name = "vscode",
+  },
+  {
+    "martinsione/darkplus.nvim",
+    lazy = false,
+    name = "darkplus",
+  },
+
+  {
+    "s1n7ax/nvim-window-picker",
+    -- tag = "v1.*",
+    lazy = false,
+    config = function(_, opts) require("window-picker").setup(opts) end,
+    opts = {
+      vim.keymap.set("n", "<leader>*", function()
+        local picker = require "window-picker"
+        local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+      end, { desc = "Pick a window" }),
+    },
+    -- config = function()
+    --     require'window-picker'.setup()
+    -- end,
+  },
+  {
+    "mg979/vim-visual-multi",
+    config = function() end,
+    event = { "User AstroFile" },
+  },
+  {
+    "Wansmer/treesj",
+    keys = {
+      {
+        "<leader>j",
+        "<CMD>TSJToggle<CR>",
+        desc = "Toggle TreeSitter join",
+      },
+    },
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+    opts = { use_default_keymaps = false },
+  },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    keys = {
+      { "<Leader>x", desc = "Trouble" },
+      { "<Leader>x" .. "X", "<cmd>TroubleToggle workspace_diagnostics<CR>", desc = "Trouble workspace diagnostics" },
+      { "<Leader>x" .. "x", "<cmd>TroubleToggle document_diagnostics<CR>", desc = "Trouble document diagnostics" },
+      { "<Leader>x" .. "q", "<cmd>TroubleToggle quickfix<CR>", desc = "Trouble quickfix" },
+    },
+    opts = {
+      use_diagnostic_signs = true,
+      action_keys = {
+        close = { "q", "<Esc>" },
+        cancel = { "<c-e>" },
+      },
+    },
+  },
+  {
+    "rmagatti/goto-preview",
+    config = function()
+      require("goto-preview").setup {
+        default_mappings = true,
+      }
+    end,
+    event = "User AstroFile",
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = "User AstroFile",
+  },
+  {
+    "wakatime/vim-wakatime",
+    event = "VeryLazy",
+  },
+  {
+    "nvim-neotest/neotest",
+    config = function()
+      -- get neotest namespace (api call creates or returns namespace)
+      local neotest_ns = vim.api.nvim_create_namespace "neotest"
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+            return message
+          end,
+        },
+      }, neotest_ns)
+      require("neotest").setup {
+        -- your neotest config here
+        adapters = {
+          require "neotest-go",
+          require "neotest-rust",
+          require "neotest-python" {
+            python = "/home/mic/.pyenv/shims/python",
+          },
+          require "neotest-jest" {
+            jestCommand = "npx jest",
+            jestConfigFile = "package.json",
+            env = { CI = true },
+            cwd = function(path) return vim.fn.getcwd() end,
+          },
+        },
+      }
+    end,
+    ft = { "go", "rust", "python", "typescript" },
+    dependencies = {
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-python",
+      "rouge8/neotest-rust",
+      "haydenmeade/neotest-jest",
+      "nvim-neotest/nvim-nio",
+    },
+    keys = {
+      {
+        "<leader>d" .. "l",
+        "<cmd>lua require('neotest').run.run_last()<CR>",
+        desc = "Run Last Test",
+      },
+      {
+        "<leader>d" .. "m",
+        "<cmd>lua require('neotest').run.run()<CR>",
+        desc = "Run Nearest Test",
+      },
+      {
+        "<leader>d" .. "f",
+        "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
+        desc = "Run all File Tests",
+      },
+      {
+        "<leader>d" .. "d",
+        "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
+        desc = "Debug Nearest Test",
+      },
+      {
+        "<leader>d" .. "S",
+        "<cmd>lua require('neotest').summary.toggle()<CR>",
+        desc = "Toggle Tests Summary",
+      },
+      {
+        "<leader>d" .. "O",
+        "<cmd>lua require('neotest').output.open({ enter = true })<CR>",
+        desc = "Toggle Output Panel",
+      },
+    },
+  },
+  {
+    {
+      "ggandor/flit.nvim",
+      keys = function()
+        ---@type LazyKeys[]
+        local ret = {}
+        for _, key in ipairs { "f", "F", "t", "T" } do
+          ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
+        end
+        return ret
+      end,
+      opts = { labeled_modes = "nx" },
+      dependencies = {
+        "ggandor/leap.nvim",
+        keys = {
+          { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+          { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+          { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+        },
+        config = function(_, opts)
+          local leap = require "leap"
+          for k, v in pairs(opts) do
+            leap.opts[k] = v
+          end
+          leap.add_default_mappings(true)
+        end,
+        dependencies = {
+          "tpope/vim-repeat",
+        },
+      },
+    },
+  },
+
+  {
+    "Shatur/neovim-ayu",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+  },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+  },
+  {
+    "briones-gabriel/darcula-solid.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    dependencies = {
+      "rktjmp/lush.nvim",
+    },
+  },
+  {
+    "barrett-ruth/import-cost.nvim",
+    build = "sh install.sh yarn",
+    config = true,
+    opts = {},
+    ft = {
+      "typescript",
+      "typescriptreact",
+      "javascript",
+      "javascriptreact",
+    },
+  },
+  {
+    "smzm/hydrovim",
+    ft = {
+      "python",
+    },
+  },
+  {
+    "roobert/search-replace.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("search-replace").setup {
+        -- optionally override defaults
+        default_replace_single_buffer_options = "gcI",
+        default_replace_multi_buffer_options = "egcI",
+      }
+    end,
+    keys = {
+      { "<f4>", desc = "Search_Replace" },
+      {
+        "<f4>" .. "s",
+        "<cmd>SearchReplaceSingleBufferCExpr<CR>",
+        desc = "Search_Replace CExpr",
+      },
+    },
+  },
+  {
+    {
+      "rest-nvim/rest.nvim",
+      ft = { "http", "json" },
+      cmd = {
+        "RestNvim",
+        "RestNvimPreview",
+        "RestNvimLast",
+      },
+      dependencies = { "nvim-lua/plenary.nvim" },
+      keys = {
+        { "<leader>r" .. "n", desc = "RestNvim" },
+        { "<leader>r" .. "s", "<Plug>RestNvim", desc = "Run request" },
+      },
+      opts = {},
+    },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+  },
+  {
+    "lalitmee/browse.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "stevearc/dressing.nvim",
+    },
+    opts = {
+      provider = "duckduckgo",
+      bookmarks = {
+        ["github"] = {
+          ["name"] = "search github from neovim",
+          ["code_search"] = "https://github.com/search?q=%s&type=code",
+          ["repo_search"] = "https://github.com/search?q=%s&type=repositories",
+          ["issues_search"] = "https://github.com/search?q=%s&type=issues",
+          ["pulls_search"] = "https://github.com/search?q=%s&type=pullrequests",
+        },
+      },
+    },
+    keys = {
+      { "<leader>sb", "<cmd>lua require('browse').browse()<cr>", desc = "BROWSE" },
+    },
+  },
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    config = function()
+      require("silicon").setup {
+        -- Configuration here, or leave empty to use defaults
+        -- font = "VictorMono NF=34;Noto Emoji=34",
+        font = "JetBrainsMono Nerd Font=34;Noto Emoji=34",
+      }
+    end,
+  },
+  {
+    "kevinhwang91/rnvimr",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>Og", "<cmd>RnvimrToggle<cr>", desc = "RnvimrToggle" },
+    },
   },
 }

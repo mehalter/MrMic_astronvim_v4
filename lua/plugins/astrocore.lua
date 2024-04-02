@@ -1,7 +1,7 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation can be found with `:h astrocore`
+--Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
@@ -70,6 +70,99 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+        ["<leader>R"] = { name = "RUN" },
+        ["<leader>Rr"] = { name = "RUST" },
+        ["<leader>Rrr"] = { "<cmd>RustRun<cr>", desc = "Run RUST" },
+        ["<leader>RrR"] = { "<cmd>RustRunnable<cr>", desc = "Runnable RUST" },
+        ["<leader>Rri"] = { "<cmd>RustSetInlayHints<cr>", desc = "Rust Set Inlay Hints" },
+        ["<leader>RrI"] = { "<cmd>RustUnsetInlayHints<cr>", desc = "Rust Unset Inlay Hints" },
+        ["<leader>Rrc"] = { "<cmd>RustOpenCargo<cr>", desc = "Rust Open Cargo" },
+        ["<leader>Rrg"] = { "<cmd>RustViewCrateGraph<cr>", desc = "Rust View Crate Graph" },
+        ["<C-F3>"] = { "<cmd>RustEnableInlayHints<cr>", desc = "Enable Inlay Hints" },
+        ["<C-F4>"] = { "<cmd>RustDisableInlayHints<cr>", desc = "Disable Inlay Hints" },
+
+        ["<leader>Rf"] = { name = "FLUTTER" },
+        ["<leader>Rfr"] = { "<cmd>FlutterRun<cr>", desc = "Run Flutter" },
+        ["<leader>RfR"] = { "<cmd>FlutterRestart<cr>", desc = "Restart Flutter" },
+        ["<leader>Rfl"] = { "<cmd>FlutterReload<cr>", desc = "Reload Flutter" },
+        ["<leader>Rfd"] = { "<cmd>FlutterDevices<cr>", desc = "Flutter Devices" },
+        ["<leader>Rfe"] = { "<cmd>FlutterEmulators<cr>", desc = "Flutter Emulators" },
+        ["<leader>Rfg"] = { "<cmd>FlutterPubGet<cr>", desc = "Flutter PubGet" },
+        ["<leader>Rfu"] = { "<cmd>FlutterPubUpgrade<cr>", desc = "Flutter PubUpgrade" },
+        ["<leader>Rfq"] = { "<cmd>FlutterQuit<cr>", desc = "Flutter Quit" },
+
+        ["<leader>Rg"] = { name = "GOLANG" },
+        ["<leader>Rgi"] = { "<cmd>GoImpl<cr>", desc = "Go Impl Interface" },
+        ["<leader>Rga"] = { "<cmd>GoTagAdd<cr>", desc = "Add Tag (json | yaml)" },
+        ["<leader>Rgr"] = { "<cmd>GoTagRm<cr>", desc = "Remove Tag (json | yaml)" },
+        ["<leader>Rgg"] = { "<cmd>GoGet<cr>", desc = "Go Get package (url)" },
+        ["<leader>Rgd"] = { "<cmd>GoCmt<cr>", desc = "Generate Doc Comment" },
+
+        ["<leader>Ro"] = { name = "OVERSEER" },
+        ["<leader>Ror"] = { "<cmd>OverseerRun<cr>", desc = "Overseer Run" },
+        ["<leader>Rot"] = { "<cmd>OverseerToggle<cr>", desc = "Overseer Toggle" },
+        ["<F8>"] = { "<cmd>OverseerToggle<cr>", desc = "Overseer Toggle" },
+        ["<leader>Roo"] = { "<cmd>OverseerOpen<cr>", desc = "Overseer Open" },
+
+        ["<leader>Rc"] = { name = "COMPILER" },
+        ["<leader>Rco"] = { "<cmd>CompilerOpen<cr>", desc = "Compiler Open" },
+        ["<leader>Rct"] = { "<cmd>CompilerToggleResults<cr>", desc = "Compiler Toggle Results" },
+
+        ["<leader>Rd"] = { name = "DBUI" },
+        ["<leader>Rdc"] = { "<cmd>DBUIClose<cr>", desc = "DBUI Close" },
+        ["<leader>Rda"] = { "<cmd>DBUIAddConnection<cr>", desc = "DBUI Add Connection" },
+        ["<leader>Rdt"] = { "<cmd>DBUIToggle<cr>", desc = "DBUI Toggle" },
+
+        ["<C-w>M"] = { "<cmd>WindowsMaximize<cr>", desc = "Maximize Window" },
+        ["<C-w>E"] = { "<cmd>WindowsEqualize<cr>", desc = "Equalize Window" },
+
+        ["<leader>B"] = { name = "Comment Box" },
+        ["<leader>Bb"] = { name = "BOX" },
+        ["<leader>Bbl"] = { "<cmd>CBllbox<cr>", desc = "Left Commented Box" },
+        ["<leader>Bbc"] = { "<cmd>CBccbox<cr>", desc = "Centered Commented Box" },
+        ["<leader>Bl"] = { name = "LINE" },
+        ["<leader>Bl2"] = { "<cmd>CBcline2<cr>", desc = "Line Simple Heavy" },
+        ["<leader>Bc"] = { name = "CHAINSAW" },
+        ["<leader>Bcv"] = {
+          function() require("chainsaw").variableLog() end,
+          desc = "Chainsaw - Variable Log",
+        },
+        ["<leader>Bco"] = {
+          function() require("chainsaw").objectLog() end,
+          desc = "Chainsaw - Object Log",
+        },
+        ["<leader>Bct"] = {
+          function() require("chainsaw").timeLog() end,
+          desc = "Chainsaw - Time Log",
+        },
+        ["<leader>Bcr"] = {
+          function() require("chainsaw").removeLogs() end,
+          desc = "Chainsaw - Remove Log",
+        },
+
+        ["<leader>fg"] = { name = "Live GREP" },
+        ["<leader>fgg"] = {
+          ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+          desc = "Live Grep",
+        },
+        ["<leader>fgc"] = {
+          function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end,
+          desc = "Live Grep Word Under Cursor",
+        },
+        ["<F3>"] = { "<cmd>Telescope projects<CR>", desc = "Telescope Project" },
+        ["<leader>tz"] = {
+          -- "<cmd>TermExec cmd=zellij name=zellij<cr>",
+          function()
+            local utils = require "astronvim.utils"
+            utils.toggle_term_cmd "zellij"
+          end,
+          desc = "ToggleTerm Zellij",
+        },
+        ["<leader>ta"] = {
+          "<cmd>ToggleTerm direction=tab name=Tab<CR>",
+          desc = "ToggleTerm TAB",
+        },
       },
       t = {
         -- setting a mapping to false will disable it

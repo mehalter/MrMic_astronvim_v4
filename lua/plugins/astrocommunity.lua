@@ -151,7 +151,7 @@ return {
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   -- -- { import = "astrocommunity.terminal-integration.vim-tpipeline" },
   -- --
-  { import = "astrocommunity.utility.noice-nvim" },
+  -- { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
   { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
 }
