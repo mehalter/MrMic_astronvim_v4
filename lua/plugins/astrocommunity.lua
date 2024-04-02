@@ -71,11 +71,6 @@ return {
   { import = "astrocommunity.editing-support.dial-nvim" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.editing-support.wildfire-nvim" },
-  -- -- {
-  -- --   "LudoPinelli/comment-box.nvim",
-  -- --   event = "VeryLazy",
-  -- --   opts = {},
-  -- -- },
   -- { import = "astrocommunity.editing-support.hypersonic-nvim" },
   { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.editing-support.neogen" },
@@ -87,7 +82,7 @@ return {
   {
     "stevearc/oil.nvim",
     keys = {
-      { "<leader>O" .. "o", function() require("oil").open() end, desc = "OIL - Open folder in Oil" },
+      { "<Leader>O" .. "o", function() require("oil").open() end, desc = "OIL - Open folder in Oil" },
     },
   },
   --

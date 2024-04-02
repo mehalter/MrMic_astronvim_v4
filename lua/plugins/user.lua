@@ -130,28 +130,6 @@ return {
     -- config = function() vim.keymap.set("n", "<C-h>", "<cmd>:TmuxNavigateLeft<cr>") end,
   },
   {
-    "navarasu/onedark.nvim",
-    opts = {
-      -- styles = dark, darker, cool, deep, warm, warmer, light
-      -- toggle theme style ---
-      toggle_style_key = "<leader>ts", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-      -- toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
-      toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer" }, -- List of styles to toggle between
-    },
-  },
-  {
-    "Mofiqul/vscode.nvim",
-    lazy = false,
-    opts = {},
-    name = "vscode",
-  },
-  {
-    "martinsione/darkplus.nvim",
-    lazy = false,
-    name = "darkplus",
-  },
-
-  {
     "s1n7ax/nvim-window-picker",
     -- tag = "v1.*",
     lazy = false,
@@ -252,7 +230,7 @@ return {
             jestCommand = "npx jest",
             jestConfigFile = "package.json",
             env = { CI = true },
-            cwd = function(path) return vim.fn.getcwd() end,
+            cwd = function(_path) return vim.fn.getcwd() end,
           },
         },
       }
@@ -337,19 +315,6 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
   },
   {
-    "marko-cerovac/material.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-  },
-  {
-    "briones-gabriel/darcula-solid.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    dependencies = {
-      "rktjmp/lush.nvim",
-    },
-  },
-  {
     "barrett-ruth/import-cost.nvim",
     build = "sh install.sh yarn",
     config = true,
@@ -397,8 +362,8 @@ return {
       },
       dependencies = { "nvim-lua/plenary.nvim" },
       keys = {
-        { "<leader>r" .. "n", desc = "RestNvim" },
-        { "<leader>r" .. "s", "<Plug>RestNvim", desc = "Run request" },
+        { "<Leader>r" .. "n", desc = "RestNvim" },
+        { "<Leader>r" .. "s", "<Plug>RestNvim", desc = "Run request" },
       },
       opts = {},
     },
@@ -411,28 +376,6 @@ return {
       "javascriptreact",
       "typescript",
       "typescriptreact",
-    },
-  },
-  {
-    "lalitmee/browse.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "stevearc/dressing.nvim",
-    },
-    opts = {
-      provider = "duckduckgo",
-      bookmarks = {
-        ["github"] = {
-          ["name"] = "search github from neovim",
-          ["code_search"] = "https://github.com/search?q=%s&type=code",
-          ["repo_search"] = "https://github.com/search?q=%s&type=repositories",
-          ["issues_search"] = "https://github.com/search?q=%s&type=issues",
-          ["pulls_search"] = "https://github.com/search?q=%s&type=pullrequests",
-        },
-      },
-    },
-    keys = {
-      { "<leader>sb", "<cmd>lua require('browse').browse()<cr>", desc = "BROWSE" },
     },
   },
   {
