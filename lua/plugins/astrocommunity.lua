@@ -98,7 +98,7 @@ return {
   { import = "astrocommunity.indent.mini-indentscope" },
   -- --
   { import = "astrocommunity.lsp.garbage-day-nvim" },
-  -- { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
+  { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
   -- -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
@@ -109,7 +109,7 @@ return {
   { import = "astrocommunity.media.image-nvim" },
   -- ---
   { import = "astrocommunity.motion.flash-nvim" },
-  -- -- { import = "astrocommunity.motion.hop-nvim" },
+  -- { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.motion.harpoon" },
   -- -- { import = "astrocommunity.motion.harpoon2" },
   { import = "astrocommunity.motion.marks-nvim" },

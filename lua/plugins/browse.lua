@@ -20,7 +20,7 @@ return {
       },
     },
     keys = {
-      { "<leader>sb", "<cmd>lua require('browse').browse()<cr>", desc = "BROWSE" },
+      { "<Leader>sb", "<cmd>lua require('browse').browse()<cr>", desc = "BROWSE" },
     },
   },
 }
