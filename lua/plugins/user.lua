@@ -99,11 +99,6 @@ return {
     },
   },
   {
-    "ggandor/lightspeed.nvim",
-    opts = {},
-    event = { "User AstroFile" },
-  },
-  {
     "luukvbaal/nnn.nvim",
     -- config = function() require("nnn").setup() end,
     config = function(_, opts) require("nnn").setup(opts) end,
