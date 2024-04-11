@@ -81,8 +81,6 @@ return {
         ["<Leader>RrI"] = { "<cmd>RustUnsetInlayHints<cr>", desc = "Rust Unset Inlay Hints" },
         ["<Leader>Rrc"] = { "<cmd>RustOpenCargo<cr>", desc = "Rust Open Cargo" },
         ["<Leader>Rrg"] = { "<cmd>RustViewCrateGraph<cr>", desc = "Rust View Crate Graph" },
-        ["<C-F3>"] = { "<cmd>RustEnableInlayHints<cr>", desc = "Enable Inlay Hints" },
-        ["<C-F4>"] = { "<cmd>RustDisableInlayHints<cr>", desc = "Disable Inlay Hints" },
 
         ["<Leader>Rf"] = { name = "FLUTTER" },
         ["<Leader>Rfr"] = { "<cmd>FlutterRun<cr>", desc = "Run Flutter" },

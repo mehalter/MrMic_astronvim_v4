@@ -167,23 +167,6 @@ return {
     event = "VeryLazy",
   },
   {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    keys = {
-      { "<Leader>x", desc = "Trouble" },
-      { "<Leader>x" .. "X", "<cmd>TroubleToggle workspace_diagnostics<CR>", desc = "Trouble workspace diagnostics" },
-      { "<Leader>x" .. "x", "<cmd>TroubleToggle document_diagnostics<CR>", desc = "Trouble document diagnostics" },
-      { "<Leader>x" .. "q", "<cmd>TroubleToggle quickfix<CR>", desc = "Trouble quickfix" },
-    },
-    opts = {
-      use_diagnostic_signs = true,
-      action_keys = {
-        close = { "q", "<Esc>" },
-        cancel = { "<c-e>" },
-      },
-    },
-  },
-  {
     "rmagatti/goto-preview",
     config = function()
       require("goto-preview").setup {
