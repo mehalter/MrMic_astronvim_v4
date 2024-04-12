@@ -154,7 +154,7 @@ return {
         ["<Leader>tz"] = {
           -- "<cmd>TermExec cmd=zellij name=zellij<cr>",
           function()
-            local utils = require "astronvim.utils"
+            local utils = require "astrocore"
             utils.toggle_term_cmd "zellij"
           end,
           desc = "ToggleTerm Zellij",

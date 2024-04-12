@@ -102,8 +102,10 @@ return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
-  -- --
+  --
   { import = "astrocommunity.indent.indent-blankline-nvim" },
+  { import = "astrocommunity.indent.indent-rainbowline" },
+  { import = "astrocommunity.indent.indent-tools-nvim" },
   { import = "astrocommunity.indent.mini-indentscope" },
   --
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
