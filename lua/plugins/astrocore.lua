@@ -100,8 +100,12 @@ return {
         ["<Leader>Rgd"] = { "<cmd>GoCmt<cr>", desc = "Generate Doc Comment" },
 
         ["<Leader>Ro"] = { name = "OVERSEER" },
+        ["<Leader>Roa"] = { "<cmd>OverseerTaskAction<cr>", desc = "Overseer Task Action" },
+        ["<Leader>Roc"] = { "<cmd>OverseerRunCmd<cr>", desc = "Overseer Run Cmd" },
+        ["<Leader>Roi"] = { "<cmd>OverseerInfo<cr>", desc = "Overseer Info" },
         ["<Leader>Ror"] = { "<cmd>OverseerRun<cr>", desc = "Overseer Run" },
         ["<Leader>Rot"] = { "<cmd>OverseerToggle<cr>", desc = "Overseer Toggle" },
+        ["<Leader>Roq"] = { "<cmd>OverseerQuickAction<cr>", desc = "Overseer Quick Action" },
         ["<F8>"] = { "<cmd>OverseerToggle<cr>", desc = "Overseer Toggle" },
         ["<Leader>Roo"] = { "<cmd>OverseerOpen<cr>", desc = "Overseer Open" },
 

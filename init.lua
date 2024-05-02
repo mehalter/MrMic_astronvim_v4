@@ -17,3 +17,5 @@ end
 
 require "lazy_setup"
 require "polish"
+
+-- package.cpath = package.cpath .. ";" .. "/home/mic/.luarocks/lib/lua/5.1/?.so"

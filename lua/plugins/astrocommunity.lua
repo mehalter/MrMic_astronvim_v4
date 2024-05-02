@@ -9,6 +9,7 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.helm" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.json" },
@@ -19,6 +20,7 @@ return {
   -- { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.quarto" },
+  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.terraform" },
@@ -30,18 +32,21 @@ return {
 
   { import = "astrocommunity.colorscheme.bamboo-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.cyberdream-nvim" },
   { import = "astrocommunity.colorscheme.everforest" },
   { import = "astrocommunity.colorscheme.gruvbox-baby" },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.melange-nvim" },
   { import = "astrocommunity.colorscheme.mellow-nvim" },
+  { import = "astrocommunity.colorscheme.miasma-nvim" },
   { import = "astrocommunity.colorscheme.monokai-pro-nvim" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.nord-nvim" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.rose-pine" },
+  { import = "astrocommunity.colorscheme.tokyodark-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
 
   -- { import = "astrocommunity.completion.codeium-vim" },
@@ -103,11 +108,12 @@ return {
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.openingh-nvim" },
   --
-  { import = "astrocommunity.indent.indent-blankline-nvim" },
-  { import = "astrocommunity.indent.indent-rainbowline" },
+  -- { import = "astrocommunity.indent.indent-blankline-nvim" },
+  -- { import = "astrocommunity.indent.indent-rainbowline" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
   { import = "astrocommunity.indent.mini-indentscope" },
   --
+  { import = "astrocommunity.keybinding.hydra-nvim" },
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
   --
   { import = "astrocommunity.lsp.actions-preview-nvim" },
@@ -119,29 +125,34 @@ return {
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
   -- --
-  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
   -- ---
   { import = "astrocommunity.media.image-nvim" },
   -- ---
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.flit-nvim" },
   -- { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.motion.harpoon" },
   -- -- { import = "astrocommunity.motion.harpoon2" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.nvim-tree-pairs" },
   { import = "astrocommunity.motion.tabout-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
-  -- --
+  --
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },
-  -- --
+  --
+  { import = "astrocommunity.note-taking.venn-nvim" },
+  --
   { import = "astrocommunity.programming-language-support.csv-vim" },
   { import = "astrocommunity.programming-language-support.dooku-nvim" },
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
-  -- -- { import = "astrocommunity.programming-language-support.rest-nvim" },
+  { import = "astrocommunity.programming-language-support.rest-nvim" },
   { import = "astrocommunity.programming-language-support.web-tools-nvim" },
-  -- --
+  --
   { import = "astrocommunity.project.project-nvim" },
   { import = "astrocommunity.project.projectmgr-nvim" },
   { import = "astrocommunity.project.nvim-spectre" },
