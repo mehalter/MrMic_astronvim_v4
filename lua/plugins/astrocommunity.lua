@@ -44,35 +44,37 @@ return {
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.nord-nvim" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },
+  { import = "astrocommunity.colorscheme.nvim-juliana" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.rose-pine" },
   { import = "astrocommunity.colorscheme.tokyodark-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-
-  -- { import = "astrocommunity.completion.codeium-vim" },
   --
-  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.lualine-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.statuscol-nvim" },
+
+  -- { import = "astrocommunity.comment.ts-comments-nvim" },
+
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   --
   { import = "astrocommunity.code-runner/compiler-nvim" },
   { import = "astrocommunity.code-runner/overseer-nvim" },
   { import = "astrocommunity.code-runner/sniprun" },
+  { import = "astrocommunity.code-runner/toggletasks-nvim" },
   --
   { import = "astrocommunity.color.ccc-nvim" },
   { import = "astrocommunity.color.nvim-highlight-colors" },
   { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.color.vim-highlighter" },
   --
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.completion.cmp-git" },
   --
   { import = "astrocommunity.debugging.nvim-chainsaw" },
   {
     "chrisgrieser/nvim-chainsaw",
     event = { "User AstroFile" },
   },
+  --
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
   --
   { import = "astrocommunity.editing-support.comment-box-nvim" },
   { import = "astrocommunity.editing-support.dial-nvim" },
@@ -118,7 +120,7 @@ return {
   --
   { import = "astrocommunity.lsp.actions-preview-nvim" },
   { import = "astrocommunity.lsp.garbage-day-nvim" },
-  { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-inlayhints-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
   { import = "astrocommunity.lsp.lsplinks-nvim" },
@@ -129,13 +131,14 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.markmap-nvim" },
   -- ---
+  { import = "astrocommunity.media.codesnap-nvim" },
   { import = "astrocommunity.media.image-nvim" },
   -- ---
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.flit-nvim" },
   -- { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.motion.harpoon" },
-  -- -- { import = "astrocommunity.motion.harpoon2" },
+  { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.motion.nvim-surround" },
@@ -157,8 +160,12 @@ return {
   { import = "astrocommunity.project.projectmgr-nvim" },
   { import = "astrocommunity.project.nvim-spectre" },
   --
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
+  { import = "astrocommunity.recipes.heirline-clock-statusline" },
+  { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.recipes.vscode-icons" },
+  { import = "astrocommunity.recipes.telescope-nvchad-theme" },
   --
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   --
@@ -173,10 +180,11 @@ return {
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
   --
+  { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   -- { import = "astrocommunity.terminal-integration.vim-tpipeline" },
   --
-  -- { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
   { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
 }

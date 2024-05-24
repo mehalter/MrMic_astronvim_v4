@@ -69,7 +69,7 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
 
         ---------------------------------------------------------------------------
 
@@ -127,6 +127,7 @@ return {
         ["<Leader>Bbc"] = { "<cmd>CBccbox<cr>", desc = "Centered Commented Box" },
         ["<Leader>Bl"] = { name = "LINE" },
         ["<Leader>Bl2"] = { "<cmd>CBcline2<cr>", desc = "Line Simple Heavy" },
+
         ["<Leader>Bc"] = { name = "CHAINSAW" },
         ["<Leader>Bcv"] = {
           function() require("chainsaw").variableLog() end,
@@ -154,7 +155,9 @@ return {
           function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end,
           desc = "Live Grep Word Under Cursor",
         },
+
         ["<F3>"] = { "<cmd>Telescope projects<CR>", desc = "Telescope Project" },
+
         ["<Leader>tz"] = {
           -- "<cmd>TermExec cmd=zellij name=zellij<cr>",
           function()

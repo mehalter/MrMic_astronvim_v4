@@ -8,6 +8,11 @@ return {
 
   -- == Examples of Adding Plugins ==
 
+  -- {
+  --   "AstroNvim/astrocommunity",
+  --   version = "8.3.0",
+  -- },
+
   "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
@@ -118,11 +123,6 @@ return {
       -- { "<F11>", "<cmd>NnnExplorer %:p:h<cr>", desc = "Open nnn Explorer" },
       { "<F12>", "<cmd>NnnPicker<cr>", desc = "Open nnn Picker" },
     },
-  },
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-    -- config = function() vim.keymap.set("n", "<C-h>", "<cmd>:TmuxNavigateLeft<cr>") end,
   },
   {
     "s1n7ax/nvim-window-picker",
